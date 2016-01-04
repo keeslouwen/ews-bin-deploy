@@ -72,7 +72,7 @@ copy_artifacts "deployments"
   jar xvf OpenClinica.war
   cd $DEPLOY_DIR
   jar xvf OpenClinica-ws.war
-  ls -ltr /opt/webserver/
+  ls -ltr /opt/webserver/webapps
 
 
 if [ -d $LOCAL_SOURCE_DIR/configuration ]; then
