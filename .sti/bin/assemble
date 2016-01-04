@@ -61,13 +61,17 @@ fi
 copy_artifacts "deployments"
 
   echo " Veer - Custom code for binary deployment"
-  echo " KL install wget...zal niet werken gok ik"
-  yum install wget
-  # Picks up WAR_FILE_URL from buildConfig
+   # Picks up WAR_FILE_URL from buildConfig
   echo ${WAR_FILE_URL1}
   curl -o ${DEPLOY_DIR}/OpenClinica.war -O ${WAR_FILE_URL1}
   echo ${WAR_FILE_URL2}
   curl -o ${DEPLOY_DIR}/OpenClinica-ws.war -O ${WAR_FILE_URL2}
+  echo "jar war so datainfo.properties can be updated before start in run"
+  cd $(DEPLOY_DIR)/webapps/OpenClinica
+  jar xvf OpenClinica.war
+  cd $(DEPLOY_DIR)/webapps/OpenClinica-ws
+  jar xvf OpenClinica-ws.war
+
 
 if [ -d $LOCAL_SOURCE_DIR/configuration ]; then
   echo "Copying config files from project..."
