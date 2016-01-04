@@ -74,10 +74,10 @@ copy_artifacts "deployments"
   jar xf OpenClinica.war
   cd $DEPLOY_DIR/OpenClinica-ws
   jar xf OpenClinica-ws.war
-  
-  sed -i "/^dbHost=.*/c\dbHost=\${OCDBTST1_SERVICE_HOST}" $JWS_HOME/webapps/OpenClinica/WEB-INF/classes/datainfo.properties
+  env
+  sed -i "/^dbHost=.*/c\dbHost=172.30.32.174" $JWS_HOME/webapps/OpenClinica/WEB-INF/classes/datainfo.properties
 sed -i "/^db=.*/c\db=openclinica" $JWS_HOME/webapps/OpenClinica/WEB-INF/classes/datainfo.properties
-sed -i "/^dbPort=.*/c\dbPort=\${OCDBTST1_SERVICE_PORT}" $JWS_HOME/webapps/OpenClinica/WEB-INF/classes/datainfo.properties
+sed -i "/^dbPort=.*/c\dbPort=5432" $JWS_HOME/webapps/OpenClinica/WEB-INF/classes/datainfo.properties
 sed -i "/^userAccountNotification=.*/c\userAccountNotification=admin" $JWS_HOME/webapps/OpenClinica/WEB-INF/classes/datainfo.properties
 sed -i "/^# about\.text1=.*/c\about.text1= Powered by" $JWS_HOME/webapps/OpenClinica/WEB-INF/classes/datainfo.properties
 sed -i "/^# about\.text2=.*/c\about.text2= mosaic-greifswald.de" $JWS_HOME/webapps/OpenClinica/WEB-INF/classes/datainfo.properties
@@ -86,7 +86,7 @@ sed -i "/^collectStats=.*/c\collectStats=false" $JWS_HOME/webapps/OpenClinica/WE
 sed -i "/^designerURL=.*/c\designerURL=" $JWS_HOME/webapps/OpenClinica/WEB-INF/classes/datainfo.properties
 sed -i "/^designerURL=.*/c\filePath=/opt/webserver/${WEBAPP.lower}.data/" $JWS_HOME/webapps/OpenClinica/WEB-INF/classes/datainfo.properties
 cp $JWS_HOME/webapps/OpenClinica/WEB-INF/classes/datainfo.properties $JWS_HOME/webapps/OpenClinica-ws/WEB-INF/classes/datainfo.properties
-cat $JWS_HOME/webapps/OpenClinica/WEB-INF/classes/datainfo.properties
+cat $JWS_HOME/webapps/OpenClinica/WEB-INF/classes/datainfo.properties | grep db
 
 if [ -d $LOCAL_SOURCE_DIR/configuration ]; then
   echo "Copying config files from project..."
