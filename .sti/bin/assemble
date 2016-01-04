@@ -60,17 +60,19 @@ fi
 # directory to the $DEPLOY_DIR directory for later deployment
 copy_artifacts "deployments"
 
-  echo " Veer - Custom code for binary deployment"
+  echo " KL - Custom code for binary deployment"
+  mkdir $DEPLOY_DIR/OpenClinica
+  mkdir $DEPLOY_DIR/OpenClinica-ws
    # Picks up WAR_FILE_URL from buildConfig
   echo ${WAR_FILE_URL1}
-  curl -o ${DEPLOY_DIR}/OpenClinica.war -O ${WAR_FILE_URL1}
+  curl -o ${DEPLOY_DIR}/OpenClinica/OpenClinica.war -O ${WAR_FILE_URL1}
   echo ${WAR_FILE_URL2}
-  curl -o ${DEPLOY_DIR}/OpenClinica-ws.war -O ${WAR_FILE_URL2}
+  curl -o ${DEPLOY_DIR}/OpenClinica-ws/OpenClinica-ws.war -O ${WAR_FILE_URL2}
   echo "jar war so datainfo.properties can be updated before start in run"
   ls -ltr /opt/webserver
-  cd $DEPLOY_DIR
+  cd $DEPLOY_DIR/OpenClinica
   jar xvf OpenClinica.war
-  cd $DEPLOY_DIR
+  cd $DEPLOY_DIR/OpenClinica-ws
   jar xvf OpenClinica-ws.war
   ls -ltr /opt/webserver/webapps
 
