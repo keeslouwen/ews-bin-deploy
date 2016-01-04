@@ -84,7 +84,7 @@ sed -i "/^# about\.text2=.*/c\about.text2= mosaic-greifswald.de" $JWS_HOME/webap
 sed -i "/^# supportURL=.*/c\supportURL=https://mosaic-greifswald.de/openclinica" $JWS_HOME/webapps/OpenClinica/WEB-INF/classes/datainfo.properties
 sed -i "/^collectStats=.*/c\collectStats=false" $JWS_HOME/webapps/OpenClinica/WEB-INF/classes/datainfo.properties
 sed -i "/^designerURL=.*/c\designerURL=" $JWS_HOME/webapps/OpenClinica/WEB-INF/classes/datainfo.properties
-cp $JWS_HOME/openclinica.config/datainfo.properties $JWS_HOME/webapps/OpenClinica/WEB-INF/classes/datainfo.properties
+cp $JWS_HOME/webapps/OpenClinica/WEB-INF/classes/datainfo.properties $JWS_HOME/webapps/OpenClinica-ws/WEB-INF/classes/datainfo.properties
 
 
 if [ -d $LOCAL_SOURCE_DIR/configuration ]; then
