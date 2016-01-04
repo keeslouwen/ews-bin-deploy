@@ -67,10 +67,12 @@ copy_artifacts "deployments"
   echo ${WAR_FILE_URL2}
   curl -o ${DEPLOY_DIR}/OpenClinica-ws.war -O ${WAR_FILE_URL2}
   echo "jar war so datainfo.properties can be updated before start in run"
+  ls -ltr /opt/webserver
   cd $DEPLOY_DIR
   jar xvf OpenClinica.war
   cd $DEPLOY_DIR
   jar xvf OpenClinica-ws.war
+  ls -ltr /opt/webserver/
 
 
 if [ -d $LOCAL_SOURCE_DIR/configuration ]; then
