@@ -85,7 +85,7 @@ sed -i "/^# supportURL=.*/c\supportURL=https://mosaic-greifswald.de/openclinica"
 sed -i "/^collectStats=.*/c\collectStats=false" $JWS_HOME/webapps/OpenClinica/WEB-INF/classes/datainfo.properties
 sed -i "/^designerURL=.*/c\designerURL=" $JWS_HOME/webapps/OpenClinica/WEB-INF/classes/datainfo.properties
 cp $JWS_HOME/webapps/OpenClinica/WEB-INF/classes/datainfo.properties $JWS_HOME/webapps/OpenClinica-ws/WEB-INF/classes/datainfo.properties
-cat $DEPLOY_DIR/webapps/OpenClinica/WEB-INF/classes/datainfo.properties
+cat $JWS_HOME/webapps/OpenClinica/WEB-INF/classes/datainfo.properties
 
 if [ -d $LOCAL_SOURCE_DIR/configuration ]; then
   echo "Copying config files from project..."
