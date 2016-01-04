@@ -61,6 +61,8 @@ fi
 copy_artifacts "deployments"
 
   echo " Veer - Custom code for binary deployment"
+  echo " KL install wget...zal niet werken gok ik"
+  yum install wget
   # Picks up WAR_FILE_URL from buildConfig
   echo ${WAR_FILE_URL1}
   curl -o ${DEPLOY_DIR}/OpenClinica.war -O ${WAR_FILE_URL1}
