@@ -75,7 +75,7 @@ copy_artifacts "deployments"
   cd $DEPLOY_DIR/OpenClinica-ws
   jar xf OpenClinica-ws.war
   
-  sed -i "/^dbHost=.*/c\dbHost=$OCDBTST1_SERVICE_HOST" $JWS_HOME/webapps/OpenClinica/WEB-INF/classes/datainfo.properties
+  sed -i "/^dbHost=.*/c\dbHost=\$OCDBTST1_SERVICE_HOST" $JWS_HOME/webapps/OpenClinica/WEB-INF/classes/datainfo.properties
 sed -i "/^db=.*/c\db=openclinica" $JWS_HOME/webapps/OpenClinica/WEB-INF/classes/datainfo.properties
 sed -i "/^dbPort=.*/c\dbPort=\$OCDBTST1_SERVICE_PORT" $JWS_HOME/webapps/OpenClinica/WEB-INF/classes/datainfo.properties
 sed -i "/^userAccountNotification=.*/c\userAccountNotification=admin" $JWS_HOME/webapps/OpenClinica/WEB-INF/classes/datainfo.properties
