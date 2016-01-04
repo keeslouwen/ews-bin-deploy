@@ -67,9 +67,9 @@ copy_artifacts "deployments"
   echo ${WAR_FILE_URL2}
   curl -o ${DEPLOY_DIR}/OpenClinica-ws.war -O ${WAR_FILE_URL2}
   echo "jar war so datainfo.properties can be updated before start in run"
-  cd $(DEPLOY_DIR)/webapps/OpenClinica
+  cd $DEPLOY_DIR/OpenClinica
   jar xvf OpenClinica.war
-  cd $(DEPLOY_DIR)/webapps/OpenClinica-ws
+  cd $DEPLOY_DIR/OpenClinica-ws
   jar xvf OpenClinica-ws.war
 
 
