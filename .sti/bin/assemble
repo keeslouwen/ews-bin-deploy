@@ -71,11 +71,11 @@ copy_artifacts "deployments"
   echo "jar war so datainfo.properties can be updated before start in run"
   ls -ltr /opt/webserver
   cd $DEPLOY_DIR/OpenClinica
-  jar xvf OpenClinica.war
+  jar xf OpenClinica.war
   cd $DEPLOY_DIR/OpenClinica-ws
-  jar xvf OpenClinica-ws.war
+  jar xf OpenClinica-ws.war
   
-sed -i "/^dbHost=.*/c\dbHost=172.30.32.174" $JWS_HOME/webapps/OpenClinica/WEB-INF/classes/datainfo.properties
+  sed -i "/^dbHost=.*/c\dbHost=172.30.32.174" $JWS_HOME/webapps/OpenClinica/WEB-INF/classes/datainfo.properties
 sed -i "/^db=.*/c\db=openclinica" $JWS_HOME/webapps/OpenClinica/WEB-INF/classes/datainfo.properties
 sed -i "/^dbPort=.*/c\dbPort=5432" $JWS_HOME/webapps/OpenClinica/WEB-INF/classes/datainfo.properties
 sed -i "/^userAccountNotification=.*/c\userAccountNotification=admin" $JWS_HOME/webapps/OpenClinica/WEB-INF/classes/datainfo.properties
@@ -85,7 +85,7 @@ sed -i "/^# supportURL=.*/c\supportURL=https://mosaic-greifswald.de/openclinica"
 sed -i "/^collectStats=.*/c\collectStats=false" $JWS_HOME/webapps/OpenClinica/WEB-INF/classes/datainfo.properties
 sed -i "/^designerURL=.*/c\designerURL=" $JWS_HOME/webapps/OpenClinica/WEB-INF/classes/datainfo.properties
 cp $JWS_HOME/webapps/OpenClinica/WEB-INF/classes/datainfo.properties $JWS_HOME/webapps/OpenClinica-ws/WEB-INF/classes/datainfo.properties
-
+cat $DEPLOY_DIR/webapps/OpenClinica/WEB-INF/classes/datainfo.properties
 
 if [ -d $LOCAL_SOURCE_DIR/configuration ]; then
   echo "Copying config files from project..."
