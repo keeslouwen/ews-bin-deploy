@@ -1,6 +1,7 @@
 #!/bin/sh
 
-
+env
+sed -i "/^# about\.text1=.*/c\about.text1= Powered by" $JWS_HOME/webapps/OpenClinica/WEB-INF/classes/datainfo.properties
 
 exec $JWS_HOME/bin/launch.sh
 ~
