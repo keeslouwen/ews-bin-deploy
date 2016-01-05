@@ -87,6 +87,9 @@ sed -i "/^designerURL=.*/c\designerURL=" $JWS_HOME/webapps/OpenClinica/WEB-INF/c
 sed -i "/^designerURL=.*/c\filePath=/opt/webserver/${WEBAPP.lower}.data/" $JWS_HOME/webapps/OpenClinica/WEB-INF/classes/datainfo.properties
 cp $JWS_HOME/webapps/OpenClinica/WEB-INF/classes/datainfo.properties $JWS_HOME/webapps/OpenClinica-ws/WEB-INF/classes/datainfo.properties
 cat $JWS_HOME/webapps/OpenClinica/WEB-INF/classes/datainfo.properties | grep db
+chown -R root:root $JWS_HOME/webapps/OpenClinica/WEB-INF/classes/datainfo.properties
+chown -R root:root $JWS_HOME/webapps/OpenClinica-ws/WEB-INF/classes/datainfo.properties
+ls -ltr $JWS_HOME/webapps/OpenClinica/WEB-INF/classes
 
 if [ -d $LOCAL_SOURCE_DIR/configuration ]; then
   echo "Copying config files from project..."
