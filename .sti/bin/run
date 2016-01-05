@@ -1,6 +1,7 @@
 #!/bin/sh
 
 env
+chown -R jboss:jboss /opt/webserver/openclinica.conf/datainfo.properties
 sed -i "/^dbHost=.*/c\dbHost=$OCDBTST1_SERVICE_HOST" $JWS_HOME/webapps/OpenClinica/WEB-INF/classes/datainfo.properties
 sed -i "/^db=.*/c\db=openclinica" $JWS_HOME/webapps/OpenClinica/WEB-INF/classes/datainfo.properties
 sed -i "/^dbPort=.*/c\dbPort=5432" $JWS_HOME/webapps/OpenClinica/WEB-INF/classes/datainfo.properties
